@@ -785,7 +785,7 @@ class _QpapersState extends State<Qpapers> {
         padding: const EdgeInsets.only(top: 10.0),
         child: FutureBuilder(
           future: http.get(Uri.parse(
-              'https://e4a3-103-154-54-137.in.ngrok.io/csmamoc/${widget.title}')),
+              'https://outq-crashed-xdj6p.ondigitalocean.app/csmamoc/${widget.title}')),
           // Uri.parse('https://e4a3-103-154-54-137.in.ngrok.io/csmamoc/${widget.title}')),
           builder:
               (BuildContext context, AsyncSnapshot<http.Response> snapshot) {
@@ -910,7 +910,7 @@ class DBMS extends StatelessWidget {
 Future getData(BuildContext context) async {
   print(' called');
   var response = await http
-      .get(Uri.parse('https://a931-103-154-54-137.in.ngrok.io/csmamoc/dbms'));
+      .get(Uri.parse('https://outq-crashed-xdj6p.ondigitalocean.app/csmamoc/dbms'));
   print(response);
   var jsonData = jsonDecode(response.body);
   print(jsonData);
