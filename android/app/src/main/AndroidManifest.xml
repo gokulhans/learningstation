@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.csmamoc">
    <application
-        android:label="csmamoc"
+        android:label="CsVault"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -31,5 +31,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+     android:name="android.permission.INTERNET"
+     android:maxSdkVersion="18" />
 </manifest>
