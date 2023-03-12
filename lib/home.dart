@@ -45,6 +45,7 @@ class _MainPageState extends State<MainPage> {
     // getData(context);
     return Scaffold(
       appBar: AppBar(
+        
         systemOverlayStyle: const SystemUiOverlayStyle(
             systemNavigationBarColor: Colors.white, // navigation bar color
             systemNavigationBarIconBrightness: Brightness.dark,
@@ -73,14 +74,11 @@ class _MainPageState extends State<MainPage> {
                   children: [
                     Column(
                       children: [
-                        
                         GestureDetector(
-                          onTap: ()async{
-                            var url =
-                                'https://www.mamocollege.org/';
+                          onTap: () async {
+                            var url = 'https://www.mamocollege.org/';
                             await launchUrl(Uri.parse(url),
                                 mode: LaunchMode.externalNonBrowserApplication);
-                          
                           },
                           child: Text(
                             'DEPARTMENT OF COMPUTER SCIENCE',
@@ -115,17 +113,21 @@ class _MainPageState extends State<MainPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: const DecorationImage(
-                    image: NetworkImage(
-                        "https://static.wixstatic.com/media/8cbac8_067169809a244f5ab286cd1068bcde8f~mv2.jpg/v1/fill/w_1349,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8cbac8_067169809a244f5ab286cd1068bcde8f~mv2.jpg"),
+                    image: NetworkImage("https://static.wixstatic.com/media/8cbac8_067169809a244f5ab286cd1068bcde8f~mv2.jpg/v1/fill/w_1349,h_589,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8cbac8_067169809a244f5ab286cd1068bcde8f~mv2.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 18.0),
-                child: Text('Study Materials',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w900,color: Colors.amber),),
+                child: Text(
+                  'Study Materials',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.amber),
+                ),
               ),
-
               Container(
                 color: Colors.white,
                 child: Column(children: <Widget>[
@@ -626,7 +628,10 @@ class _MainPageState extends State<MainPage> {
                             SizedBox(
                               height: 10,
                             ),
-                            Text("Computer Networks",style: TextStyle(fontSize: 9),)
+                            Text(
+                              "Computer Networks",
+                              style: TextStyle(fontSize: 9),
+                            )
                           ],
                         ),
                       ),
@@ -691,11 +696,44 @@ class _MainPageState extends State<MainPage> {
                               fontSize: 20),
                         )),
                   ),
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: 30, right: 30, top: 10, bottom: 10),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.amber,
+                      boxShadow: [
+                        const BoxShadow(color: Colors.green, spreadRadius: 3),
+                      ],
+                    ),
+                    child: TextButton(
+                        onPressed: () async {
+                          var title =
+                              'https://www.csmamocollege.in/question-papers';
+                          var url = title;
+                          // if (await canLaunchUrl(Uri.parse(url))) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Qpapers(
+                                        title: "department",
+                                      )));
+                        },
+                        child: Text(
+                          "Department Details",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 20),
+                        )),
+                  ),
                   Column(
                     children: [
                       TextButton(
                           onPressed: () async {
-                            var url = 'https://www.linkedin.com/in/govind-hans-v/';
+                            var url =
+                                'https://www.linkedin.com/in/govind-hans-v/';
                             await launchUrl(Uri.parse(url),
                                 mode: LaunchMode.externalNonBrowserApplication);
                           },
@@ -781,6 +819,10 @@ class _QpapersState extends State<Qpapers> {
   Widget build(BuildContext context) {
     print(widget.title);
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Cs Vault"),
+        backgroundColor: Colors.green,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 10.0),
         child: FutureBuilder(
@@ -909,8 +951,8 @@ class DBMS extends StatelessWidget {
 
 Future getData(BuildContext context) async {
   print(' called');
-  var response = await http
-      .get(Uri.parse('https://outq-crashed-xdj6p.ondigitalocean.app/csmamoc/dbms'));
+  var response = await http.get(
+      Uri.parse('https://outq-crashed-xdj6p.ondigitalocean.app/csmamoc/dbms'));
   print(response);
   var jsonData = jsonDecode(response.body);
   print(jsonData);

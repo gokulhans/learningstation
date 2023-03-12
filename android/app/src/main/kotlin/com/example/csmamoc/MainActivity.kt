@@ -1,4 +1,4 @@
-package com.example.csmamoc
+package com.csmamocollege.app
 
 import io.flutter.embedding.android.FlutterActivity
 
